@@ -28,6 +28,7 @@ read -p "Enter Failure threshold :(Default 50)" fail_value
 # Using the sed command with the -i flag to directly make changes in the config.json file
 sed -i "s/\"warning\": [0-9]*/\"warning\": ${warning_value: -75}/" "$parent_dir/Helpers/config.json"
 sed -i "s/\"failure\": [0-9]*/\"failure\": ${fail_value: -50}/" "$parent_dir/Helpers/config.json"
+fi
 echo "Running a background health check"
 echo "searching for python on your environment"
 if python3 --version &>/dev/null; then
@@ -40,7 +41,7 @@ if [ -f "$parent_dir/attendance_checker.py" ] && [ -d "$parent_dir/Helpers" ] &&
 echo -e "SUCCESS !! \n Project directory structure successfully created"
 else
 echo -e "FAIL !! \n Project directory structure is errotic"
-
+fi
 
 
 
