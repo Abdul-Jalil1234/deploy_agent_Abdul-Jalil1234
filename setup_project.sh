@@ -2,9 +2,9 @@
 set -e # This will prompt the script to stop whenever a problem is encountered
 stop_and_bundle_archive(){
 echo -e "The script is been terminated \n Creating archive"
-if [-d "$parent_dir"]; then
+if [ -d "$parent_dir" ]; then
 tar -cvf "${parent_dir}_archive" "$parent_dir"
-rm -f "$parent_dir"
+rm -rf "$parent_dir"
 echo -e "The directory was successfully cleaned up \n Workspace archived as ${parent_dir}_archive"
 fi
 exit 1
@@ -26,12 +26,11 @@ if [[ "$response" =~ ^[Yy]$ ]]; then
 read -p "Enter Warning threshold :(Default 75)" warning_value
 read -p "Enter Failure threshold :(Default 50)" fail_value
 # Using the sed command with the -i flag to directly make changes in the config.json file
-sed -i "s/\"warning\": [0-9]*/\"warning\": ${warning_value: -75}/" "$parent_dir/Helpers/config.json"
-sed -i "s/\"failure\": [0-9]*/\"failure\": ${fail_value: -50}/" "$parent_dir/Helpers/config.json"
+    sed -i "s/\(\"warning\":\)[[:space:]]*[0-9]*/\1 ${warning_value:-75}/" "$parent_dir/Helpers/config.json"
+    sed -i "s/\(\"failure\":\)[[:space:]]*[0-9]*/\1 ${fail_value:-50}/" "$parent_dir/Helpers/config.json"
 fi
 echo "Running a background health check"
 echo "searching for python on your environment"
-fi
 if python3 --version &>/dev/null; then
 echo "Success!! $(python3 --version) is installed"
 else 
