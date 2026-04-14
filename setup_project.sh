@@ -31,6 +31,7 @@ sed -i "s/\"failure\": [0-9]*/\"failure\": ${fail_value: -50}/" "$parent_dir/Hel
 fi
 echo "Running a background health check"
 echo "searching for python on your environment"
+fi
 if python3 --version &>/dev/null; then
 echo "Success!! $(python3 --version) is installed"
 else 
