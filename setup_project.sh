@@ -30,6 +30,7 @@ sed -i "s/\"warning\": [0-9]*/\"warning\": ${warning_value: -75}/" "$parent_dir/
 sed -i "s/\"failure\": [0-9]*/\"failure\": ${fail_value: -50}/" "$parent_dir/Helpers/config.json"
 echo "Running a background health check"
 echo "searching for python on your environment"
+fi
 if python3 --version &>/dev/null; then
 echo "Success!! $(python3 --version) is installed"
 else 
@@ -40,7 +41,7 @@ if [ -f "$parent_dir/attendance_checker.py" ] && [ -d "$parent_dir/Helpers" ] &&
 echo -e "SUCCESS !! \n Project directory structure successfully created"
 else
 echo -e "FAIL !! \n Project directory structure is errotic"
-
+fi
 
 
 
