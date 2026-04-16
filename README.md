@@ -22,7 +22,7 @@ Removes the original directory to leave the workspace clean.
 2. Directory Scaffolding
 The script builds a standardized project structure based on your input:
 Component	Path	                   Description
-Root	  attendance_tracker_[name]/	Contains the attendance_checker.py file.
+Root	  attendance_tracker_[user_input]/	Contains the attendance_checker.py file.
 Helpers	  /Helpers/	                Contains config.json and assets.csv.
 Reports 	/reports/	      Contains the reports.log file.
 
@@ -37,10 +37,10 @@ sed -i "s/\(\"warning\":\)[[:space:]]*[0-9]*/\1 ${warning_value:-75}/"  "$parent
 
 4. Environment Validation
 Before completing, the script runs a two-step health check:
-Python Health Check
--It verifies if python3 is installed in the current environment .
+ ## Python Health Check
+i). It verifies if python3 is installed in the current environment .
 Structural Integrity
--It performs a final check to confirm that:
-The main script exists in the root.
-The /Helpers directory is present.
-The /reports directory is present
+ii). It performs a final check to confirm that:
+- The main script exists in the root.
+- The /Helpers directory is present.
+- The /reports directory is present
