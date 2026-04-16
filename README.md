@@ -39,7 +39,6 @@ sed -i "s/\(\"warning\":\)[[:space:]]*[0-9]*/\1 ${warning_value:-75}/"  "$parent
 Before completing, the script runs a two-step health check:
  ## Python Health Check
 i). It verifies if python3 is installed in the current environment .
-Structural Integrity
 ii). It performs a final check to confirm that:
 - The main script exists in the root.
 - The /Helpers directory is present.
